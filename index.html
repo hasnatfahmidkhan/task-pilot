@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskPilot — guiding your tasks to done.</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section class="min-h-screen bg-[#0B0F13] font-mono text-[#E6EEF2]">
+      <!-- ===== Start: Header Section ===== -->
+      <section class="bg-[#0F1720]">
+        <header
+          class="w-full lg:w-10/12 mx-auto flex justify-between items-center p-5 lg:p-10"
+        >
+          <!-- ===== Start: icon Section ===== -->
+          <div class="w-10 lg:w-14">
+            <img src="./img/logo.png" alt="logo" />
+          </div>
+          <!-- ===== End: icon Section ===== -->
+          <!-- ===== Start: Search Section ===== -->
+
+          <div
+            class="border-1 border-[#ffffff1e] bg[#ffffff05] p-3 rounded-lg w-2/3 flex items-center gap-2 font-mono"
+          >
+            <label for="search">
+              <i class="fa-solid fa-magnifying-glass cursor-text"></i>
+            </label>
+            <input
+              type="search"
+              id="search"
+              class="grow border-none focus:outline-none w-full"
+              placeholder="Search"
+            />
+          </div>
+          <button
+            onclick="addTaskModal.showModal()"
+            class="btn bg-transparent border-none w-9 h-9 lg:w-13 lg:h-13 rounded-full ring-2 ring-[#00E5FF]/40 flex items-center justify-center cursor-pointer hover:bg-[rgba(0,229,255,0.1)]"
+          >
+            <i class="fa-solid fa-plus text-[#00E5FF] lg:text-2xl"></i>
+          </button>
+
+          <!-- ===== Start: Modal Section ===== -->
+          <!-- Open the modal using ID.showModal() method -->
+
+          <dialog id="addTaskModal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box bg-[#0F1720] text-white">
+              <div>
+                <div class="space-y-3">
+                  <input
+                    id="inputTaskTitle"
+                    type="text"
+                    placeholder="Type Title"
+                    class="input w-full bg-transparent border-1 border-[#ffffff1e] bg[#ffffff05]"
+                  />
+                  <div
+                    role="alert"
+                    id="taskNotAdd"
+                    class="hidden alert alert-error"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 shrink-0 stroke-current"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span>You Have Add Task.</span>
+                  </div>
+                </div>
+                <!-- details  -->
+                <fieldset class="fieldset">
+                  <legend class="fieldset-legend">Task Details</legend>
+                  <textarea
+                    id="inputTaskDetail"
+                    class="textarea h-28 w-full bg-transparent border-1 border-[#ffffff1e] bg[#ffffff05]"
+                    placeholder="Task Details"
+                  ></textarea>
+                </fieldset>
+              </div>
+              <div class="modal-action">
+                <form
+                  method="dialog"
+                  class="w-full flex items-center justify-between"
+                >
+                  <button id="addTaskBtn" class="btn btn-success">
+                    Add Task
+                  </button>
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button class="btn btn-error">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+          <!-- ===== End: Modal Section ===== -->
+          <!-- ===== End: Search Section ===== -->
+        </header>
+      </section>
+      <!-- ===== End: Header Section ===== -->
+
+      <!-- ===== Start: Main Section ===== -->
+      <main>
+        <dialog id="detailsModal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-action"></div>
+        </dialog>
+        <!-- ===== Start: Cards Section ===== -->
+        <section
+          class="w-11/12 lg:w-9/12 mx-auto my-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
+        >
+          <!-- Planning  -->
+          <div id="plannig" class="border border-[#ffffff1e] p-5 rounded-2xl">
+            <h2 class="text-[#00d3db] text-2xl font-medium">Planning</h2>
+          </div>
+
+          <!-- progress  -->
+          <div class="card border border-[#ffffff1e] p-5 rounded-2xl">
+            <h2 class="text-[#1bb6fb] text-2xl font-medium">Progress</h2>
+
+            <!-- ===== Start: Task Section ===== -->
+            <div
+              draggable="true"
+              class="px-4 py-5 rounded-xl border border-[#ffffff1e] mt-4 cursor-grab space-y-3"
+            >
+              <div class="flex items-center gap-4 text-[17px]">
+                <h3 class="truncate">
+                  Lorem ipsum dolor, sit amet consectetur lorem lorem
+                </h3>
+                <span>🚀</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="badge badge-info cursor-default">Progress</div>
+                <i
+                  class="fa-solid fa-circle-info text-[#1bb6fb] cursor-pointer text-[17px]"
+                ></i>
+              </div>
+            </div>
+            <!-- ===== End: Task Section ===== -->
+          </div>
+
+          <!-- completed  -->
+          <div class="card border border-[#ffffff1e] p-5 rounded-2xl">
+            <h2 class="text-[#98e039] text-2xl font-medium">Completed</h2>
+
+            <!-- ===== Start: Task Section ===== -->
+            <div
+              draggable="true"
+              class="px-4 py-5 rounded-xl border border-[#ffffff1e] mt-4 cursor-grab space-y-3"
+            >
+              <div class="flex items-center gap-4 text-[17px]">
+                <h3 class="truncate">
+                  Lorem ipsum dolor, sit amet consectetur lorem lorem
+                </h3>
+                <span>✅</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="badge bg-[#98e039] border-none cursor-default">
+                  Success
+                </div>
+                <i
+                  class="fa-solid fa-circle-info text-[#98e039] cursor-pointer text-[17px]"
+                ></i>
+              </div>
+            </div>
+            <!-- ===== End: Task Section ===== -->
+          </div>
+        </section>
+        <!-- ===== End: Cards Section ===== -->
+      </main>
+      <!-- ===== End: Main Section ===== -->
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
