@@ -16,7 +16,14 @@ addTaskBtn.addEventListener("click", (e) => {
   taskNotAdd.classList.add("hidden");
   const taskTitle = inputTaskTitle.value;
   const taskDetail = inputTaskDetail.value;
+  showTaskList(taskTitle);
+  showDetail(taskTitle, taskDetail);
+  inputTaskTitle.value = "";
+  inputTaskDetail.value = "";
+});
 
+// Function for showing task list
+const showTaskList = (taskTitle) => {
   // create task element
   const taskElem = document.createElement("div");
   taskElem.setAttribute("draggable", true);
@@ -40,10 +47,7 @@ addTaskBtn.addEventListener("click", (e) => {
   taskContainers.forEach((taskContainer) => {
     getDraggable(taskContainer.childNodes);
   });
-  showDetail(taskTitle, taskDetail);
-  inputTaskTitle.value = "";
-  inputTaskDetail.value = "";
-});
+};
 
 // Function for add drag events on draggable Element
 function getDraggable(draggables) {
