@@ -120,62 +120,70 @@
         </dialog>
         <!-- ===== Start: Cards Section ===== -->
         <section
-          class="w-11/12 lg:w-9/12 mx-auto my-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
+          class="w-11/12 lg:w-9/12 mx-auto my-10 grid grid-cols-1 lg:grid-cols-3 items-start gap-8"
         >
           <!-- Planning  -->
-          <div id="plannig" class="border border-[#ffffff1e] p-5 rounded-2xl">
+          <div class="border border-[#ffffff1e] p-5 rounded-2xl">
             <h2 class="text-[#00d3db] text-2xl font-medium">Planning</h2>
+
+            <!-- Task Container  -->
+            <div id="plannig" class="taskContainer transition-all duration-300  min-h-24"></div>
           </div>
 
           <!-- progress  -->
-          <div class="card border border-[#ffffff1e] p-5 rounded-2xl">
+          <div class="border border-[#ffffff1e] p-5 rounded-2xl">
             <h2 class="text-[#1bb6fb] text-2xl font-medium">Progress</h2>
 
             <!-- ===== Start: Task Section ===== -->
-            <div
-              draggable="true"
-              class="px-4 py-5 rounded-xl border border-[#ffffff1e] mt-4 cursor-grab space-y-3"
-            >
-              <div class="flex items-center gap-4 text-[17px]">
-                <h3 class="truncate">
-                  Lorem ipsum dolor, sit amet consectetur lorem lorem
-                </h3>
-                <span>🚀</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="badge badge-info cursor-default">Progress</div>
-                <i
-                  class="fa-solid fa-circle-info text-[#1bb6fb] cursor-pointer text-[17px]"
-                ></i>
-              </div>
+            <div id="progress" class="taskContainer transition-all duration-300  min-h-24">
+              <!-- <div
+                draggable="true"
+                class="draggable px-4 py-5 rounded-xl border border-[#ffffff1e] mt-4 cursor-grab space-y-3"
+              >
+                <div class="flex items-center gap-4 text-[17px]">
+                  <h3 class="truncate">
+                    Lorem ipsum dolor, sit amet consectetur lorem lorem
+                  </h3>
+                  <span>🚀</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="badge badge-info cursor-default">Progress</div>
+                  <i
+                    class="fa-solid fa-circle-info text-[#1bb6fb] cursor-pointer text-[17px]"
+                  ></i>
+                </div>
+              </div> -->
             </div>
             <!-- ===== End: Task Section ===== -->
           </div>
 
           <!-- completed  -->
-          <div class="card border border-[#ffffff1e] p-5 rounded-2xl">
+          <div class="border border-[#ffffff1e] p-5 rounded-2xl">
             <h2 class="text-[#98e039] text-2xl font-medium">Completed</h2>
 
             <!-- ===== Start: Task Section ===== -->
-            <div
-              draggable="true"
-              class="px-4 py-5 rounded-xl border border-[#ffffff1e] mt-4 cursor-grab space-y-3"
-            >
-              <div class="flex items-center gap-4 text-[17px]">
-                <h3 class="truncate">
-                  Lorem ipsum dolor, sit amet consectetur lorem lorem
-                </h3>
-                <span>✅</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="badge bg-[#98e039] border-none cursor-default">
-                  Success
+            <div id="completed" class="taskContainer transition-all duration-300  min-h-24">
+              <!-- <div
+                draggable="true"
+                class="draggable px-4 py-5 rounded-xl border border-[#ffffff1e] mt-4 cursor-grab space-y-3"
+              >
+                <div class="flex items-center gap-4 text-[17px]">
+                  <h3 class="truncate">
+                    Lorem ipsum dolor, sit amet consectetur lorem lorem
+                  </h3>
+                  <span>✅</span>
                 </div>
-                <i
-                  class="fa-solid fa-circle-info text-[#98e039] cursor-pointer text-[17px]"
-                ></i>
-              </div>
+                <div class="flex items-center justify-between">
+                  <div class="badge bg-[#98e039] border-none cursor-default">
+                    Success
+                  </div>
+                  <i
+                    class="fa-solid fa-circle-info text-[#98e039] cursor-pointer text-[17px]"
+                  ></i>
+                </div>
+              </div> -->
             </div>
+
             <!-- ===== End: Task Section ===== -->
           </div>
         </section>
